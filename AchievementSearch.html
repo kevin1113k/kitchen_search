@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+          
+          width: 0px;
+          height: 0px;
+          background-image:url("UI/BG_menu.png");
+          background-repeat: no-repeat;
+          /*background-size: cover;*/
+        }
+        .shape-ex1{
+            
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+        
+            transition: all .3s linear;
+            position:absolute;
+            top:500px;
+            left:900px;
+        }
+            .shape-ex1:active{
+            
+            color: #000;
+        }
+        .inputTXT{
+            width: 300px;
+            height: 40px;
+            position:absolute;
+            top:450px;
+            left:822px;
+        }
+        .achievementBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top:230px;
+            left:100px;
+        }
+        .studentBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top:330px;
+            left:100px;
+        }
+        .wrongBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top:430px;
+            left:100px;
+        }
+        .signoutBt
+        {
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top:40px;
+            right:50px;
+        }
+        .text
+        {
+            position:absolute;
+            top:40px;
+            right:150px;
+            
+        }
+        .number1
+        {
+            position:absolute;
+            top:220px;
+            left:450px;
+            
+        }
+        .number2
+        {
+            position:absolute;
+            top:220px;
+            left:900px;
+            
+        }
+        .number3
+        {
+            position:absolute;
+            top:220px;
+            left:1400px;
+            
+        }
+        .fonttxt
+        {
+            position:absolute;
+            top:270px;
+            left:450px;
+            table-layout: fixed;
+            
+    
+        }
+      </style>
+</head>
+<body>
+    
+    <button class="achievementBt" onclick="aa()"><img src="UI\Title_ResultInquiry_in.png"></button>
+    <button class="studentBt" onclick="javascript:location.href='StudentOperation.html'"><img src="UI\Title_StudentOperation.png"></button>
+    <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
+    <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
+    <h2><p class="text">
+        您好歡迎登入本系統
+    </p></h2>
+    <img class="number1" src="UI\text_Codename.png"></img>
+    <img class="number2" src="UI\text_score%.png"></img>
+    <img class="number3" src="UI\text_times.png"></img>
+    
+
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+<h2><p class="text"></p>
+<script>
+
+        var b = []
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata0",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[0] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata1",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[1] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata2",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[2] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata3",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[3] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata4",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[4] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata5",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[5] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata6",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[6] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata7",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[7] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata8",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[8] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata9",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[9] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata10",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[10] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata11",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[11] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata12",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[12] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata13",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[13] = aa
+        }
+        });
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "fontdata14",
+           
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+        success: function (aa) {
+            b[14] = aa
+        }
+        });
+        
+
+
+        setTimeout("aaa()",3000);
+        //document.write(b);
+        function aaa()
+        {
+            var c=1,d=2;
+            var el = document.getElementById('main');
+            menu = ["最新消息", "產品資訊", "聯絡資訊", "關於我們"];
+            mLen = menu.length;
+            text = "<table border='0' width='1500' class='fonttxt' cellpadding='10' table-layout='fixed'>";
+            
+                text += "<tr>";
+                text += "<td><h2>" +b[0]+"</h2></td>";
+                text += "<td><h2>" +b[1]+"</h2></td>";
+                text += "<td><h2>" +b[2]+"</h2></td>";
+                text += "</tr>";
+                text += "<tr>";
+                text += "<td><h2>" +b[3]+"</h2></td>";
+                text += "<td><h2>" +b[4]+"</h2></td>";
+                text += "<td><h2>" +b[5]+"</h2></td>";
+                text += "</tr>";
+                text += "<tr>";
+                text += "<td><h2>" +b[6]+"</h2></td>";
+                text += "<td><h2>" +b[7]+"</h2></td>";
+                text += "<td><h2>" +b[8]+"</h2></td>";
+                text += "</tr>";
+                text += "<tr>";
+                text += "<td><h2>" +b[9]+"</h2></td>";
+                text += "<td><h2>" +b[10]+"</h2></td>";
+                text += "<td><h2>" +b[11]+"</h2></td>";
+                text += "</tr>";
+                text += "<tr>";
+                text += "<td><h2>" +b[12]+"</h2></td>";
+                text += "<td><h2>" +b[13]+"</h2></td>";
+                text += "<td><h2>" +b[14]+"</h2></td>";
+                text += "</tr>";
+
+                
+                text += "</table>";
+                
+                document.getElementById("demo").innerHTML = text;
+
+                        /*el.innerHTML = '<table><colgroup span="2" style="background-color: gray;"></colgroup><tr><td>'
+                        +d+'<td>'+c+'</td>'+'</td></tr></table>'*/
+
+            /*el.innerHTML = '<table><colgroup span="1" style="background-color: gray;"></colgroup><tr><td>'
+                +
+                b[i][j]
+                +'</td></tr></table>'*/
+        }
+</script>
+</p></h2>
+<h2><p class="text"></p>
+<script>
+
+    
+    
+</script>
+</p></h2>
+<div id="main"></div>
+<p id="demo"></p>
+</html>

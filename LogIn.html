@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+          
+          
+          background-image:url("UI/BG_login.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          position:fixed;
+          height: 100%;
+          width: 100%;
+        }
+        .inputUsername{
+            max-height: 100%;  
+            max-width: 100%; 
+            width: 20%;
+            height: 3%;
+            position: absolute;  
+            top: 16%;  
+            bottom: 0;  
+            left: 8%;  
+            right: 0;  
+            margin: auto;
+        }
+        .inputPwd{
+            max-height: 100%;  
+            max-width: 100%; 
+            width: 20%;
+            height: 3%;
+            position: absolute;  
+            top: 34%;  
+            bottom: 0;  
+            left: 8%;  
+            right: 0;  
+            margin: auto;
+        }
+        
+        .LoginBt
+        {
+            max-height: 100%;  
+            max-width: 100%; 
+            width: 112px;
+            height: 110px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            position: absolute;  
+            top:61%;
+            left:0;
+            bottom: 0;  
+            right: 0;  
+            margin: auto;
+            background-image:url("UI/button_login.png");
+            background-repeat: no-repeat;
+            
+        }
+        .number1
+        {
+            
+            max-height: 100%;  
+            max-width: 100%; 
+            width: auto;
+            height: auto;
+            position: absolute;  
+            top: 24%;  
+            bottom: 0;  
+            left: 0;  
+            right: 0;  
+            margin: auto;
+            
+            
+        }
+      </style>
+</head>
+<body>
+    
+    <img class="number1" src="UI\login_frame.png"></img>
+
+    <!--<button class="LoginBt" onclick="divFunction()"><img  src="UI\button_login.png"></button>-->
+    <input class="LoginBt" type="button" onclick="divFunction()">
+    
+    <input  id="account" class="inputUsername" type="text" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
+    <input  id="password" class="inputPwd"  type="password" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
+    
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    
+    <script>
+        const accountInput = document.getElementById('account')
+        const passwordInput = document.getElementById('password')
+        var a,k
+        
+        
+
+        $.ajax({
+        type: "post",
+        data: {
+        "method": "read1",
+        },
+        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec", // 填入網路應用程式網址
+        success: function (para) {
+            /*if(para == passwordInput.value)
+            {
+                alert("pass");
+            }
+            else{
+                alert("Error");
+            }*/
+            //k = para
+        }
+        });
+        $.ajax({
+            type: "post",
+            data: {
+            "method": "read",
+            },
+            url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec", // 填入網路應用程式網址
+            success: function (para) {
+                /*if(para == passwordInput.value)
+                {
+                    alert("pass");
+                }
+                else{
+                    alert("Error");
+                }*/
+            
+                //alert(para);
+            }
+            });
+        
+
+    
+    </script>
+
+    <script>
+       function divFunction()
+        {
+            
+            /*if(accountInput.value == a & passwordInput.value == k)
+            {
+                alert("pass");
+            }
+            else
+            {
+                alert("error");
+            }*/
+            
+            
+            $.ajax({
+            type: "post",
+            data: {
+            "method": "write",
+            "account": accountInput.value,
+            "pwd": passwordInput.value,
+            
+            },
+            url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+            success: function (para) {
+                if(para == "true")
+                {
+                    //alert("pass");
+                    location.href='AchievementSearch.html';
+                }
+                else{
+                    alert("請確認帳號或密碼入正確");
+                }
+                
+                //alert(para);
+            }
+            });
+            
+            
+        }
+    </script>
+    
+    
+</body>
+</html>

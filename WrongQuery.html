@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+          
+          width: 0px;
+          height: 0px;
+          background-image:url("UI/BG_menu.png");
+          background-repeat: no-repeat;
+          /*background-size: cover;*/
+          background-attachment:fixed;
+        }
+        .shape-ex1{
+            
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top:245px;
+            right:130px;
+        }
+            .shape-ex1:active{
+            
+            color: #000;
+        }
+        .inputTXT{
+            width: 500px;
+            height: 40px;
+            position:absolute;
+            top:260px;
+            left:822px;
+        }
+        .achievementBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:230px;
+            left:100px;
+            
+        }
+        .studentBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:330px;
+            left:100px;
+        }
+        .wrongBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:430px;
+            left:100px;
+        }
+        .signoutBt
+        {
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:40px;
+            right:50px;
+        }
+        .text
+        {
+            position:fixed;
+            top:40px;
+            right:150px;
+            background-attachment:fixed;
+            
+        }
+        .number1
+        {
+            position:absolute;
+            top:220px;
+            left:470px;
+            
+        }
+        .number2
+        {
+            position:absolute;
+            top:220px;
+            left:900px;
+            
+        }
+        .number3
+        {
+            position:absolute;
+            top:220px;
+            left:1400px;
+            
+        }
+        .number4
+        {
+            position:absolute;
+            top:220px;
+            left:500px;
+            
+        }
+        #fonttxt
+        {
+            position:absolute;
+            top:270px;
+            left:500px;
+            table-layout: fixed;
+            
+    
+        }
+
+        
+      </style>
+</head>
+<body>
+    
+    <button class="achievementBt" onclick="javascript:location.href='AchievementSearch.html'"><img src="UI\Title_ResultInquiry.png"></button>
+    <button class="studentBt" onclick="javascript:location.href='StudentOperation.html'"><img src="UI\Title_StudentOperation.png"></button>
+    <button class="wrongBt"><img src="UI\Title_WrongQuery_in.png"></button>
+    <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
+   
+    <h2><p class="text">
+        您好歡迎登入本系統
+    </p></h2>
+    
+    <img class="number4" src="UI\text_project.png"></img>
+    
+    <img class="number3" src="UI\text_Mistake.png"></img>
+    
+    <div> 
+    <div>
+    <table id="fonttxt" width="1400" cellpadding="10" table-layout="fixed">
+        
+        
+        <tr>
+          <td><h2>工作場所廠區地面應時清掃，保持清潔，不得有塵土飛揚，排水系統應經常清理，保持暢通，不得有異味。禽畜、寵物等應予管制，以避免污染食品。〔第 4 條 一（一）（二）（三）〕</h2></td>
+          <td><h2></h2></td>
+          <td><h2>0%</h2></td>
+        </tr>
+       
+        <tr>
+          <td><h2>牆壁、支柱與地面、樓板或天花板應保持清潔，樓板或天花板不得有結露現象。﹝第4條 二（一）（二）﹞</h2></td>
+          <td><h2></h2></td>
+          <td><h2>0%</h2></td>
+        </tr>
+
+        <tr >
+            <td><h2>出入口、門窗、通風口、配管外表及其他孔道應通風良好、保持清潔;排水系統應暢通，不得有異味，排水溝應有攔截固體廢棄物之設施。並均應設置防止病媒侵入之設施。﹝第4條 二（三）（四）（六）（七）﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>照明應達到一百米燭光以上，工作台面或調理台面應保持二百米燭光以上;﹝第4條 二（五）﹞
+                使用之光源應不致於改變食品之顏色；照明設備應保持清潔，以避免污染食品。﹝第4條 二（五）﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>廁所之設置地點應防止污染水源。且不得正面開向食品作業場所，但如有緩衝設施及有效控制空氣流向以防止污染者，不在此限。應保持整潔，不得有不良氣味。並於明顯處標示『如廁後應洗手』之字樣。﹝第4條 五﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>場所清潔度要求不同者，應加以有效區隔及管理，並有足夠空間，以供搬運。凡設有更衣室者，應與食品作業場所隔離，工作人員並應有個人存放衣物之箱櫃。﹝第 4 條 二(八)、八﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>廚房應維持適當之空氣壓力及合適之室溫。廚房之截油設施，應經常清理乾淨。油煙應有適當之處理措施，避免造成污染。﹝第22條 二、三、四﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>第三款、第四款以外之場區，應實施有效之病媒防治措施，避免發現有病媒或其出沒之痕跡。﹝第4條 二（九）﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>廢棄物不得任意堆置於食品作業場所內及其四周，並依廢棄物清理法及其相關法規之規定清除及處理。其放置場所不得有異味或有害（毒）氣體溢出，造成人體危害；盛裝之容器或設備應立即清洗，防止病媒孳生，必要時依危害性設置專用貯存設施。﹝第5條 四﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>設備與器具等食品接觸面應保持平滑、無凹陷或裂綘，並保持清潔，使用前應確認其清潔，使用後應清洗乾淨，且避免再受污染。清洗與消毒作業，應防止清潔劑或消毒劑污染食品、食品接觸面及包裝材料。〔第5條 二（一）（二）（三）〕</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>製備流程規劃應避免交叉污染，廚房內所有之機械與器具應保持清潔，其操作與維護應避免食品遭受污染，必要時，應以顏色區分。生鮮水產品養殖處所，應與調理處所有效區隔，供應生冷食品者，應於專屬作業區調理、加工及操作。﹝第26條 一、四、七、八、九﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>應於適當地點設置數目足夠之洗手及乾手設施，並於明顯之位置懸掛簡明易懂的洗手方法標示，必要時應設置適當的消毒設施；雙手直接調理不經加熱即可食用之食品時，應穿戴消毒清潔之不透水手套，或將手部澈底洗淨及消毒，防止已清洗之手部再度遭受污染。﹝第4條 七、第5條 一（五）（七）﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>食品從業人員工作時，應穿戴整潔之工作衣帽（鞋），必要時應戴口罩，且不得有吸菸、嚼檳榔、嚼口香糖、飲食及其他可能污染食品之行為。與食品直接接觸者不得蓄留指甲、塗抹指甲油及佩戴飾物等，並不得塗抹於肌膚上之化妝品或藥品等污染食品或食品接觸面。﹝第5條 一（四）(六)﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>食品從業人員個人衣物應放置於更衣場所，不得帶入食品作業場所；非食品從業人員之出入及衛生要求，於製備時段內，應有適當管制。﹝第5條 一（八）(九)、第26條 十﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>食品之熱藏（高溫貯存）溫度應保持在攝氏六十度以上；冷凍食品之中心溫度應保持在攝氏負十八度以下；冷藏食品之中心溫度應保持在攝氏七度以下凍結點以上。冷凍（庫）櫃、冷藏（庫）櫃應定期除霜，並應於明顯處設置溫度指示器，予以適當紀錄。﹝第17條 三、第4條 三（一）（二）（三）﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>原材料、半成品及成品倉庫，應分別設置或適當區隔。其物品應分類貯放於棧板、貨架上或採取其他有效措施，不得直接放置地面，並保持整潔及良好通風，有造成污染之虞的物品或包裝材料，應有防止交叉污染之措施。原材料使用，應遵行先進先出之原則，在有效期限內使用，並設有定期檢查機制確實記錄，不得不實或造假。若需管制溫度或濕度者，應建立管制方法及基準，並確實記錄。﹝第6條、第9條 四﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+         
+          <tr>
+            <td><h2>病媒防治使用之環境用藥、清潔劑、消毒劑及有毒化學物質，應符合環境用藥管理法及其相關法規規定，並明確標示，存放於固定場所，除維護衛生所必須使用之藥劑外，不得存放於食品作業場所內，且應指定專人負責保管及記錄其用量。清潔、清洗及消毒用機具，應有專用場所妥善保存。﹝第5條 三（一）(二) (三) (五)﹞</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+
+          <tr >
+            <td><h2>新進從業人員應先經衛生醫療機構檢查合格後，始得聘僱。雇主每年應主動辦理健康檢查至少一次。在Ａ型肝炎、手部皮膚病、出疹、膿瘡、外傷、結核病或傷寒等疾病之傳染或帶菌期間，或有其他可能造成食品污染之疾病者，應主動告知現場負責人，不得從事與食品接觸之工作。〔第5條 一（一）（三）〕</h2></td>
+            <td><h2></h2></td>
+            <td><h2>0%</h2></td>
+          </tr>
+        
+      </table>
+    </div>
+</div>
+</body>
+</html>

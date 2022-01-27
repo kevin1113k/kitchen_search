@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+          
+          width: 0px;
+          height: 0px;
+          background-image:url("UI/BG_menu.png");
+          background-repeat: no-repeat;
+          /*background-size: cover;*/
+          background-attachment:fixed;
+        }
+        .shape-ex1{
+            
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:245px;
+            right:130px;
+        }
+            .shape-ex1:active{
+            
+            color: #000;
+        }
+        .inputTXT{
+            width: 500px;
+            height: 40px;
+            position:fixed;
+            top:260px;
+            left:822px;
+        }
+        .achievementBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:230px;
+            left:100px;
+        }
+        .studentBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:330px;
+            left:100px;
+        }
+        .wrongBt{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:430px;
+            left:100px;
+        }
+        .signoutBt
+        {
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:fixed;
+            top:40px;
+            right:50px;
+        }
+        .text
+        {
+            position:fixed;
+            top:40px;
+            right:150px;
+            
+        }
+        .number1
+        {
+            position:fixed;
+            top:220px;
+            left:470px;
+            
+        }
+        .number2
+        {
+            position:absolute;
+            top:450px;
+            left:920px;
+            
+        }
+        .number3
+        {
+            position:absolute;
+            top:450px;
+            left:1400px;
+            
+        }
+        .number4
+        {
+            position:absolute;
+            top:450px;
+            left:490px;
+            
+        }
+        .sheet
+        {
+            position:absolute;
+            top:500px;
+            left:480px;
+            
+        }
+
+        
+      </style>
+</head>
+<body>
+    
+    <button class="achievementBt" onclick="javascript:location.href='AchievementSearch.html'"><img src="UI\Title_ResultInquiry.png"></button>
+    <button class="studentBt"><img src="UI\Title_StudentOperation_in.png"></button>
+    <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
+    <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
+    <h2><p class="text">
+        您好歡迎登入本系統
+    </p></h2>
+    <img class="number1" src="UI\bar_Student code query.png"></img>
+    <img class="number4" src="UI\text_date.png"></img>
+    <img class="number2" src="UI\text_time.png"></img>
+    <img class="number3" src="UI\text_score.png"></img>
+    <img class="sheet" src="UI\sheet.png"></img>
+    <input id="number"  class="inputTXT" type="text" oninput="value=value.replace(/[^\d]/g,'')">
+    <button class="shape-ex1" onclick="search()"><img src="UI\button_Inquire.png"></button>
+    
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <script>
+        function search()
+        {
+        const noInput = document.getElementById('number')
+            $.ajax({
+            type: "post",
+            data: {
+            "method": "MemberSearch",
+            "query": noInput.value,
+        
+            },
+            url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
+            success: function (para) {
+                alert(para);
+
+            }
+            });
+        }
+    </script>
+    
+</body>
+</html>
