@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style>
+<meta charset="UTF-8"></meta>
+<style>
         body{
           
           width: 0px;
@@ -97,7 +92,7 @@
         {
             position:absolute;
             top:450px;
-            left:920px;
+            left:950px;
             
         }
         .number3
@@ -121,66 +116,71 @@
             left:480px;
             
         }
+        .sheet2
+        {
+            position:absolute;
+            top:500px;
+            left:25%;
+            
+        }
 
         
       </style>
-
 <script type="text/javascript">
-    var dateReviver = function (key, value) {
-        var a;
-        if (typeof value === 'string') {
-            a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-            if (a) {
-                return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4], +a[5], +a[6]));
-            }
+var dateReviver = function (key, value) {
+    var a;
+    if (typeof value === 'string') {
+        a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+        if (a) {
+            return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4], +a[5], +a[6]));
         }
-        return value;
-    };
-    function bestdaylong_inq(orderID,Mobile,atmNO)
-    {
-    var xmlhttp;
-    
-            if (window.XMLHttpRequest)
-              {// code for IE7+, Firefox, Chrome, Opera, Safari
-              xmlhttp=new XMLHttpRequest();
-              }
-            else
-              {// code for IE6, IE5
-              xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-              }
-            xmlhttp.onreadystatechange=function()
-              {
-                      if (xmlhttp.readyState==4 && xmlhttp.status==200)      
-                      {
-                            var result=xmlhttp.responseText;
-                            var obj = JSON.parse(result,dateReviver);//解析json字串為json物件形式
-                                                    
-                            var html = '<table border=1 width=100%>';//
-                            
-                            for (var i = 0; i < obj.length; i ++ ) {//
-                                    html  += '<tr>';//
-                                    for(j=0;j<obj[i].data.length;j++)
-                                    {
-                                      html+= '<td>'+obj[i].data[j]+'</td>';
-                                    }
-                                    html  += '</tr>';            
-                            }
-                            html+="</table>";
-                            
-                            document.getElementById("order_status").innerHTML=html;
-                            if(obj.length==1) //只有一筆代表查不到資料
-                                    alert('查無資料');
-                      }
-    
-              }
-        var url="https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec";
-        xmlhttp.open("get",url+"?orderID="+orderID+"&Mobile="+Mobile+"&atmNO="+atmNO,true);
-        xmlhttp.send();
     }
-    </script>
+    return value;
+};
+function bestdaylong_inq(orderID,Mobile,atmNO)
+{
+var xmlhttp;
+
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+        xmlhttp.onreadystatechange=function()
+          {
+                  if (xmlhttp.readyState==4 && xmlhttp.status==200)      
+                  {
+                        var result=xmlhttp.responseText;
+                        var obj = JSON.parse(result,dateReviver);//解析json字串為json物件形式
+                                                
+                        var html = '<table class="sheet2"  border="1">';//
+                        
+                        for (var i = 1; i < obj.length; i ++ ) {//
+                                html  += '<tr>';//
+                                for(j=0;j<obj[i].data.length;j++)
+                                {
+                                  html+= '<td align="center" height="78px" width="450px">'+obj[i].data[j]+'</td>';
+                                }
+                                html  += '</tr>';            
+                        }
+                        html+="</table>";
+                        
+                        document.getElementById("order_status").innerHTML=html;
+                        if(obj.length==1) //只有一筆代表查不到資料
+                                alert('查無資料');
+                  }
+
+          }
+    var url="https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec";
+    xmlhttp.open("get",url+"?orderID="+orderID+"&Mobile="+Mobile+"&atmNO="+atmNO,true);
+    xmlhttp.send();
+}
+</script>
 </head>
 <body>
-    
     <button class="achievementBt" onclick="javascript:location.href='AchievementSearch.html'"><img src="UI\Title_ResultInquiry.png"></button>
     <button class="studentBt"><img src="UI\Title_StudentOperation_in.png"></button>
     <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
@@ -189,15 +189,14 @@
         您好歡迎登入本系統
     </p></h2>
     <img class="number1" src="UI\bar_Student code query.png"></img>
-    <img class="number4" src="UI\text_date.png"></img>
-    <img class="number2" src="UI\text_time.png"></img>
+    <img class="number4" src="UI\text_Codename.png"></img>
+    <img class="number2" src="UI\text_date.png"></img>
     <img class="number3" src="UI\text_score.png"></img>
-    <img class="sheet" src="UI\sheet.png"></img>
+    <!--<img class="sheet" src="UI\sheet.png"></img>-->
     <input id="orderID"  class="inputTXT" type="text" oninput="value=value.replace(/[^\d]/g,'')">
-    <button name="inq" class="shape-ex1" onclick="bestdaylong_inq(orderID.value,Mobile.value,atmNO.value);"><img src="UI\button_Inquire.png"></button>
-    
+    <button name="inq" class="shape-ex1" onclick="bestdaylong_inq(orderID.value,0);"><img src="UI\button_Inquire.png"></button>
 
-    
-    
+
+<span id="order_status"></span>
 </body>
 </html>

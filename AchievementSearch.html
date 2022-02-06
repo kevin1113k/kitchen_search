@@ -89,21 +89,21 @@
         {
             position:absolute;
             top:220px;
-            left:450px;
+            left:480px;
             
         }
         .number2
         {
             position:absolute;
             top:220px;
-            left:900px;
+            left:950px;
             
         }
         .number3
         {
             position:absolute;
             top:220px;
-            left:1400px;
+            left:1410px;
             
         }
         .fonttxt
@@ -115,12 +115,71 @@
             
     
         }
+        .sheet2
+        {
+            position:absolute;
+            top:300px;
+            left:25%;
+            
+        }
       </style>
+      <script type="text/javascript">
+        var dateReviver = function (key, value) {
+            var a;
+            if (typeof value === 'string') {
+                a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+                if (a) {
+                    return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4], +a[5], +a[6]));
+                }
+            }
+            return value;
+        };
+        function bestdaylong_inq(orderID,Mobile,atmNO)
+        {
+        var xmlhttp;
+        
+                if (window.XMLHttpRequest)
+                  {// code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp=new XMLHttpRequest();
+                  }
+                else
+                  {// code for IE6, IE5
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                  }
+                xmlhttp.onreadystatechange=function()
+                  {
+                          
+                                var result=xmlhttp.responseText;
+                                var obj = JSON.parse(result,dateReviver);//解析json字串為json物件形式
+                                                        
+                                var html = '<table class="sheet2"  border="1">';//
+                                
+                                for (var i = 1; i < obj.length; i ++ ) {//
+                                        html  += '<tr>';//
+                                        for(j=0;j<obj[i].data.length;j++)
+                                        {
+                                          html+= '<td align="center" height="78px" width="450px">'+obj[i].data[j]+'</td>';
+                                        }
+                                        html  += '</tr>';            
+                                }
+                                html+="</table>";
+                                
+                                document.getElementById("order_status").innerHTML=html;
+                          
+        
+                  }
+            var url="https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec";
+            xmlhttp.open("get",url+"?orderID="+orderID+"&Mobile="+Mobile+"&atmNO="+atmNO,true);
+            xmlhttp.send();
+        }
+        </script>
+
+      
 </head>
 <body>
     
     <button class="achievementBt" onclick="aa()"><img src="UI\Title_ResultInquiry_in.png"></button>
-    <button class="studentBt" onclick="javascript:location.href='StudentOperation.html'"><img src="UI\Title_StudentOperation.png"></button>
+    <button class="studentBt" onclick="javascript:location.href='test2.html'"><img src="UI\Title_StudentOperation.png"></button>
     <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
     <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
     <h2><p class="text">
@@ -132,237 +191,15 @@
     
 
 
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-<h2><p class="text"></p>
+
+
+
 <script>
-
-        var b = []
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata0",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[0] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata1",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[1] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata2",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[2] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata3",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[3] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata4",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[4] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata5",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[5] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata6",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[6] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata7",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[7] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata8",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[8] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata9",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[9] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata10",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[10] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata11",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[11] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata12",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[12] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata13",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[13] = aa
-        }
-        });
-        $.ajax({
-        type: "post",
-        data: {
-        "method": "fontdata14",
-           
-        },
-        url: "https://script.google.com/macros/s/AKfycbyM0a9W6BnmpWtFHU9ZVKV2Jl_ixx8Qjus0M6sIF2fYgcLAsjE/exec",
-        success: function (aa) {
-            b[14] = aa
-        }
-        });
-        
-
-
-        setTimeout("aaa()",3000);
-        //document.write(b);
-        function aaa()
-        {
-            var c=1,d=2;
-            var el = document.getElementById('main');
-            menu = ["最新消息", "產品資訊", "聯絡資訊", "關於我們"];
-            mLen = menu.length;
-            text = "<table border='0' width='1500' class='fonttxt' cellpadding='10' table-layout='fixed'>";
-            
-                text += "<tr>";
-                text += "<td><h2>" +b[0]+"</h2></td>";
-                text += "<td><h2>" +b[1]+"</h2></td>";
-                text += "<td><h2>" +b[2]+"</h2></td>";
-                text += "</tr>";
-                text += "<tr>";
-                text += "<td><h2>" +b[3]+"</h2></td>";
-                text += "<td><h2>" +b[4]+"</h2></td>";
-                text += "<td><h2>" +b[5]+"</h2></td>";
-                text += "</tr>";
-                text += "<tr>";
-                text += "<td><h2>" +b[6]+"</h2></td>";
-                text += "<td><h2>" +b[7]+"</h2></td>";
-                text += "<td><h2>" +b[8]+"</h2></td>";
-                text += "</tr>";
-                text += "<tr>";
-                text += "<td><h2>" +b[9]+"</h2></td>";
-                text += "<td><h2>" +b[10]+"</h2></td>";
-                text += "<td><h2>" +b[11]+"</h2></td>";
-                text += "</tr>";
-                text += "<tr>";
-                text += "<td><h2>" +b[12]+"</h2></td>";
-                text += "<td><h2>" +b[13]+"</h2></td>";
-                text += "<td><h2>" +b[14]+"</h2></td>";
-                text += "</tr>";
-
-                
-                text += "</table>";
-                
-                document.getElementById("demo").innerHTML = text;
-
-                        /*el.innerHTML = '<table><colgroup span="2" style="background-color: gray;"></colgroup><tr><td>'
-                        +d+'<td>'+c+'</td>'+'</td></tr></table>'*/
-
-            /*el.innerHTML = '<table><colgroup span="1" style="background-color: gray;"></colgroup><tr><td>'
-                +
-                b[i][j]
-                +'</td></tr></table>'*/
-        }
+bestdaylong_inq(0,1);
 </script>
-</p></h2>
-<h2><p class="text"></p>
-<script>
 
-    
-    
-</script>
-</p></h2>
-<div id="main"></div>
-<p id="demo"></p>
+
+
+<span id="order_status"></span>
+</body>
 </html>
