@@ -3,92 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-        body{
+    
+    <style type="text/css">
+        .bg{
           
           
           background-image:url("UI/BG_login.png");
           background-repeat: no-repeat;
           background-size: cover;
-          position:fixed;
+          position: absolute;
           height: 100%;
           width: 100%;
+          background-position: center center;
+          background-attachment:fixed;
+          top: 0;
+          
         }
         .inputUsername{
             max-height: 100%;  
             max-width: 100%; 
-            width: 20%;
-            height: 3%;
-            position: absolute;  
-            top: 16%;  
-            bottom: 0;  
-            left: 8%;  
+            width: 40%;
+            height: 10%;
+            position: absolute;    
+            bottom: 160px;  
+            left: 10%;  
             right: 0;  
             margin: auto;
         }
         .inputPwd{
             max-height: 100%;  
             max-width: 100%; 
-            width: 20%;
-            height: 3%;
-            position: absolute;  
-            top: 34%;  
-            bottom: 0;  
-            left: 8%;  
+            width: 40%;
+            height: 10%;
+            position: absolute;   
+            bottom: 70px;  
+            left: 10%;  
             right: 0;  
             margin: auto;
         }
-        
         .LoginBt
         {
-            max-height: 100%;  
-            max-width: 100%; 
-            width: 112px;
+            width: 110px;
             height: 110px;
             cursor: pointer;
             border: none;
-            background-color: rgba(0, 0, 0, 0);
-            position: absolute;  
-            top:61%;
-            left:0;
-            bottom: 0;  
-            right: 0;  
-            margin: auto;
             background-image:url("UI/button_login.png");
-            background-repeat: no-repeat;
-            
+            background-color: rgba(0, 0, 0, 0);
+            position:absolute;
+            bottom: 50px;  
+        }
+        .LoginBtdiv
+        {
+            width: 800px;
+            height: 260px;
+            border: none;
+            position:absolute;
+            background-color: rgba(0, 0, 0, 0);
+            bottom: 150px; 
         }
         .number1
         {
             
-            max-height: 100%;  
-            max-width: 100%; 
+            
             width: auto;
             height: auto;
             position: absolute;  
-            top: 24%;  
+            top: 0;  
+            bottom: 0; 
+            align-items: center;  
+            
+            
+        }
+        .number1div
+        {
+            
+            background-color: rgba(0, 0, 0, 0);
+            width: 100px;
+            height: 100px;
+            position: absolute;  
+            top: 0;  
+            bottom: 0; 
+            align-items: center;  
+            
+            
+        }
+        .full{
+            width: 100%;
+            height: 50%;
+            border: black;
+            background-color: rgba(0, 0, 255, 0);
+            position:absolute;
             bottom: 0;  
-            left: 0;  
-            right: 0;  
-            margin: auto;
-            
-            
+            display: flex;
+            justify-content: center; 
+            align-items: center;  
+  
         }
       </style>
 </head>
 <body>
+    <div class="bg">
+        <div class="full">
+          
+        
+        <input class="LoginBt" type="button" onclick="divFunction()">
+        <div class="LoginBtdiv">
+            <img class="number1" src="UI\login_frame.png"></img>
+            <input  id="account" class="inputUsername" type="text" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
+            <input  id="password" class="inputPwd"  type="password" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')"> 
+        </div>    
+        
+            
+            
+        
     
-    <img class="number1" src="UI\login_frame.png"></img>
-
-    <!--<button class="LoginBt" onclick="divFunction()"><img  src="UI\button_login.png"></button>-->
-    <input class="LoginBt" type="button" onclick="divFunction()">
     
-    <input  id="account" class="inputUsername" type="text" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
-    <input  id="password" class="inputPwd"  type="password" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
-    
+        </div>
+    </div>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
     
