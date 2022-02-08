@@ -78,14 +78,15 @@
             transition: all .3s linear;
             position:absolute;
             top:40px;
-            right:50px;
+            left:1780px;
         }
         .text
         {
             position:absolute;
             top:40px;
-            right:150px;
-            background-attachment:absolute;
+            left:1500px;
+            font-size: 30px;
+            white-space: nowrap;
             
         }
         .number1
@@ -129,7 +130,11 @@
         {
             position:absolute;
             top:300px;
-            left:25%;
+            left: 460px;
+            margin: 10px;
+            display: block;
+            overflow-x: auto;
+            width: 1350px;
             
         }
         
@@ -163,7 +168,7 @@
                           var result=xmlhttp.responseText;
                           var obj = JSON.parse(result,dateReviver);//解析json字串為json物件形式
                                                   
-                          var html = '<table class="sheet2"  >';//
+                          var html = '<table class="sheet2"  border="1">';//
                           
                           for (var i = 1; i < obj.length; i ++ ) {//
                                   html  += '<tr>';//
@@ -192,9 +197,9 @@
     <button class="wrongBt"><img src="UI\Title_WrongQuery_in.png"></button>
     <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
    
-    <h2><p class="text">
+    <div><p class="text">
         您好歡迎登入本系統
-    </p></h2>
+    </p></div>
     
     <img class="number4" src="UI\text_project.png"></img>
     

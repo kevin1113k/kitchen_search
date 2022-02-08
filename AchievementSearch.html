@@ -76,14 +76,15 @@
             transition: all .3s linear;
             position:absolute;
             top:40px;
-            right:50px;
+            left:1780px;
         }
         .text
         {
             position:absolute;
             top:40px;
-            right:150px;
-            
+            left:1500px;
+            font-size: 30px;
+            white-space: nowrap;
         }
         .number1
         {
@@ -119,8 +120,12 @@
         {
             position:absolute;
             top:300px;
-            left:25%;
-            
+            left: 460px;
+            margin: 10px;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 1350px;
         }
       </style>
       <script type="text/javascript">
@@ -182,9 +187,9 @@
     <button class="studentBt" onclick="javascript:location.href='test2.html'"><img src="UI\Title_StudentOperation.png"></button>
     <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
     <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
-    <h2><p class="text">
+    <div><p class="text">
         您好歡迎登入本系統
-    </p></h2>
+    </p></div>
     <img class="number1" src="UI\text_Codename.png"></img>
     <img class="number2" src="UI\text_score1.png"></img>
     <img class="number3" src="UI\text_times.png"></img>

@@ -9,7 +9,7 @@
           background-image:url("UI/BG_menu.png");
           background-repeat: no-repeat;
           /*background-size: cover;*/
-          background-attachment:fixed;
+          /*background-attachment:fixed;*/
         }
         .shape-ex1{
             
@@ -18,9 +18,9 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
+            position:absolute;
             top:245px;
-            right:130px;
+            left:1500px;
         }
             .shape-ex1:active{
             
@@ -29,7 +29,7 @@
         .inputTXT{
             width: 500px;
             height: 40px;
-            position:fixed;
+            position:absolute;
             top:260px;
             left:822px;
         }
@@ -39,7 +39,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
+            position:absolute;
             top:230px;
             left:100px;
         }
@@ -49,7 +49,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
+            position:absolute;
             top:330px;
             left:100px;
         }
@@ -59,7 +59,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
+            position:absolute;
             top:430px;
             left:100px;
         }
@@ -70,20 +70,22 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
+            position:absolute;
             top:40px;
-            right:50px;
+            left:1780px;
         }
         .text
         {
-            position:fixed;
+            position:absolute;
             top:40px;
-            right:150px;
+            left:1500px;
+            font-size: 30px;
+            white-space: nowrap;
             
         }
         .number1
         {
-            position:fixed;
+            position:absolute;
             top:220px;
             left:470px;
             
@@ -120,7 +122,12 @@
         {
             position:absolute;
             top:500px;
-            left:25%;
+            left: 460px;
+            margin: 10px;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 1350px;
             
         }
 
@@ -185,9 +192,9 @@ var xmlhttp;
     <button class="studentBt"><img src="UI\Title_StudentOperation_in.png"></button>
     <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
     <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
-    <h2><p class="text">
+    <div><p class="text">
         您好歡迎登入本系統
-    </p></h2>
+    </p></div>
     <img class="number1" src="UI\bar_Student code query.png"></img>
     <img class="number4" src="UI\text_Codename.png"></img>
     <img class="number2" src="UI\text_date.png"></img>
