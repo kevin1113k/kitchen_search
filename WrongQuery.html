@@ -15,7 +15,7 @@
           background-image:url("UI/BG_menu2.png");
           background-repeat: no-repeat;
           /*background-size: cover;*/
-          background-attachment:absolute;
+          background-attachment:fixed;
         }
         .shape-ex1{
             
@@ -35,7 +35,7 @@
         .inputTXT{
             width: 500px;
             height: 40px;
-            position:absolute;
+            position:fixed;
             top:260px;
             left:822px;
         }
@@ -45,7 +45,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:230px;
             left:100px;
             
@@ -56,7 +56,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:330px;
             left:100px;
         }
@@ -66,7 +66,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:430px;
             left:100px;
         }
@@ -77,18 +77,19 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:40px;
             left:1780px;
+            Z-index:2;
         }
         .text
         {
-            position:absolute;
+            position:fixed;
             top:40px;
             left:1500px;
             font-size: 30px;
             white-space: nowrap;
-            
+            Z-index:2;
         }
         .number1
         {
@@ -137,6 +138,16 @@
             overflow-x: auto;
             width: 1350px;
             font-size: 20pt;
+            Z-index:0;
+        }
+        .BG_bar
+        {
+            position:fixed;
+            top:0px;
+            left: 0px;
+            display: block;
+            overflow-x: auto;
+            Z-index:1;
         }
         
       </style>
@@ -205,6 +216,8 @@
     <img class="number4" src="UI\text_project.png"></img>
     
     <img class="number3" src="UI\text_Mistake.png"></img>
+
+    <img class="BG_bar" src="UI\BG_menu_bar.png"></img>
     
     <script>
       bestdaylong_inq(10,2);

@@ -14,7 +14,7 @@
           background-image:url("UI/BG_menu.png");
           background-repeat: no-repeat;
           /*background-size: cover;*/
-          /*background-attachment:fixed;*/
+          background-attachment:fixed;
         }
         .shape-ex1{
             
@@ -44,7 +44,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:230px;
             left:100px;
         }
@@ -54,7 +54,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:330px;
             left:100px;
         }
@@ -64,7 +64,7 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:430px;
             left:100px;
         }
@@ -75,18 +75,19 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
+            position:fixed;
             top:40px;
             left:1780px;
+            Z-index:2;
         }
         .text
         {
-            position:absolute;
+            position:fixed;
             top:40px;
             left:1500px;
             font-size: 30px;
             white-space: nowrap;
-            
+            Z-index:2;
         }
         .number1
         {
@@ -121,7 +122,7 @@
             position:absolute;
             top:500px;
             left:480px;
-            
+            Z-index:0;
         }
         .sheet2
         {
@@ -134,6 +135,16 @@
             white-space: nowrap;
             width: 1350px;
             font-size: 20pt;
+            Z-index:0;
+        }
+        .BG_bar
+        {
+            position:fixed;
+            top:0px;
+            left: 0px;
+            display: block;
+            overflow-x: auto;
+            Z-index:1;
         }
 
         
@@ -204,6 +215,7 @@ var xmlhttp;
     <img class="number4" src="UI\text_Codename.png"></img>
     <img class="number2" src="UI\text_date.png"></img>
     <img class="number3" src="UI\text_score.png"></img>
+    <img class="BG_bar" src="UI\BG_menu_bar.png"></img>
     <!--<img class="sheet" src="UI\sheet.png"></img>-->
     <input id="orderID"  class="inputTXT" type="text" style="font-size:25px" oninput="value=value.replace(/[^\d]/g,'')">
     <button name="inq" class="shape-ex1" onclick="bestdaylong_inq(orderID.value,0);"><img src="UI\button_Inquire.png"></button>
