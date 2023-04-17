@@ -102,6 +102,17 @@
             align-items: center;  
   
         }
+        .Logintest
+        {
+            width: 110px;
+            height: 110px;
+            cursor: pointer;
+            border: none;
+            background-image:url("UI/button_login.png");
+            background-color: rgba(0, 0, 0, 0);
+            position:absolute;
+            left: 0;  
+        }
       </style>
 </head>
 <body>
@@ -113,16 +124,17 @@
         <div class="LoginBtdiv">
             <img class="number1" src="UI\login_frame.png"></img>
             <input  id="account" class="inputUsername" type="text" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
-            <input  id="password" class="inputPwd"  type="password" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')"> 
+            <input  id="password" class="inputPwd"  type="password" style="font-size:16px" onkeyup="value=value.replace(/[^\w=@#]|_/ig,'')">
         </div>    
-        
-            
+          
             
         
     
     
         </div>
     </div>
+
+    
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
     
@@ -174,43 +186,70 @@
     </script>
 
     <script>
-       function divFunction()
-        {
-            
-            /*if(accountInput.value == a & passwordInput.value == k)
-            {
-                alert("pass");
+        function divFunction() {
+            const accountInput = document.getElementById('account')
+            const passwordInput = document.getElementById('password')
+
+            // 檢查是否被鎖定
+            const lockTime = localStorage.getItem('ip_lock_time')
+            if (lockTime && new Date(lockTime) > new Date()) {
+            alert('該IP已被鎖定，請稍後再試')
+            return
             }
-            else
-            {
-                alert("error");
-            }*/
-            
+
+
+            // 檢查帳號密碼是否正確
+            $.ajax({
+            type: 'post',
+            data: {
+            'method': 'write',
+            'account': accountInput.value,
+            'pwd': passwordInput.value,
+            },
+            url: 'https://script.google.com/macros/s/AKfycbycAlTXduR_wNMMNQUuWxrFWFENZlp63jDVOQKmI54NAPcg5Z2e/exec',
+            success: function (para) {
+            if (para === 'true') {
+            // 登入成功，清除登入錯誤記錄
+            localStorage.removeItem('ip_error_count')
+            localStorage.removeItem('ip_lock_time')
+            location.href = 'AchievementSearch.html'
+            } else {
+            // 登入失敗，增加登入錯誤次數
+            const errorCount = Number(localStorage.getItem('ip_error_count')) || 0
+            localStorage.setItem('ip_error_count', errorCount + 1)
+            // 檢查是否超過登入錯誤次數限制
+            if (errorCount >= 3) {
+            const lockUntil = new Date()
+            lockUntil.setMinutes(lockUntil.getMinutes() + 15)
+            localStorage.setItem('ip_lock_time', lockUntil)
+            alert('登入錯誤超過3次，該IP已被鎖定15分鐘')
+            } else {
+            alert('請確認帳號或密碼輸入正確')
+                }
+            }
+            }
+        })
+        }
+        
+
+        function writeDataToGoogleSheet() {
             
             $.ajax({
             type: "post",
             data: {
-            "method": "write",
-            "account": accountInput.value,
-            "pwd": passwordInput.value,
-            
+            "method": "writecount",
+            "account": "5566",
             },
             url: "https://script.google.com/macros/s/AKfycbycAlTXduR_wNMMNQUuWxrFWFENZlp63jDVOQKmI54NAPcg5Z2e/exec",
             success: function (para) {
                 if(para == "true")
                 {
-                    //alert("pass");
-                    location.href='AchievementSearch.html';
-                }
-                else{
-                    alert("請確認帳號或密碼入正確");
+                    alert("已成功修改帳號密碼");
                 }
                 
-                //alert(para);
             }
+            
             });
-            
-            
         }
     </script>
     
