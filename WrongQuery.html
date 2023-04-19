@@ -12,11 +12,22 @@
           
           width: 0px;
           height: 0px;
-          background-image:url("UI/BG_menu2.png");
-          background-repeat: no-repeat;
-          /*background-size: cover;*/
-          background-attachment:fixed;
+          background-image:url("UI/BG_menu_2.png");
+          background-size: cover;
+          background-repeat: repeat-y;
+          background-attachment:absolute;
         }
+        .header {
+			position: fixed; /* 將元素固定在畫面上方 */
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1; /* 設定元素的層級 */
+		}
+        .header img {
+			width: 100%;
+			max-width: 5000px; /* 根據圖片原始大小調整 */
+		}
         .shape-ex1{
             
             cursor: pointer;
@@ -28,7 +39,7 @@
             top:245px;
             right:130px;
         }
-            .shape-ex1:active{
+        .shape-ex1:active{
             
             color: #000;
         }
@@ -45,10 +56,11 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
-            top:230px;
-            left:100px;
-            
+            position:absolute;
+            top: 25%; 
+            left: 0%;
+            width: 20%; 
+            height: auto; 
         }
         .studentBt{
             cursor: pointer;
@@ -56,9 +68,11 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
-            top:330px;
-            left:100px;
+            position:absolute;
+            top: 35%; 
+            left: 0%; 
+            width: 20%; 
+            height: auto; 
         }
         .wrongBt{
             cursor: pointer;
@@ -66,9 +80,23 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:fixed;
-            top:430px;
-            left:100px;
+            position:absolute;
+            top: 45%; 
+            left: 0%; 
+            width: 20%; 
+            height: auto;
+        }
+        .setCode{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top: 55%; 
+            left: 0%; 
+            width: 20%; 
+            height: auto;
         }
         .signoutBt
         {
@@ -78,45 +106,40 @@
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
             position:fixed;
-            top:40px;
-            left:1780px;
-            Z-index:2;
+            top: 0%; 
+            right: -7%; 
+            width: 20%; 
+            height: auto;
+            z-index: 9999;
         }
         .text
         {
             position:fixed;
-            top:40px;
-            left:1500px;
+            top:-1%;
+            right: 6%; 
             font-size: 30px;
             white-space: nowrap;
             Z-index:2;
         }
-        .number1
-        {
-            position:absolute;
-            top:220px;
-            left:470px;
-            
-        }
-        .number2
-        {
-            position:absolute;
-            top:220px;
-            left:900px;
-            
-        }
         .number3
         {
             position:absolute;
-            top:220px;
-            left:1400px;
+            top:350px;
+            
+            left: clamp(800px, 50%, calc(100% - 1700px));
+            display: flex;
+            
+            max-width: 100%;
             
         }
         .number4
         {
             position:absolute;
-            top:220px;
-            left:500px;
+            top:350px;
+            
+            left: clamp(1250px, 100%, calc(100% - 1060px));
+            display: flex;
+            max-width: 100%;
             
         }
         #fonttxt
@@ -131,14 +154,15 @@
         .sheet2
         {
             position:absolute;
-            top:300px;
-            left: 460px;
+            top:400px;
+            left: clamp(800px, 50%, calc(100% - 1700px));
             margin: 10px;
             display: block;
             overflow-x: auto;
-            width: 1350px;
+            width: 100vh;
             font-size: 20pt;
             Z-index:0;
+            max-width: 100%; /* 圖片寬度不超過容器寬度 */
         }
         .BG_bar
         {
@@ -208,7 +232,10 @@
     <button class="studentBt" onclick="javascript:location.href='test2.html'"><img src="UI\Title_StudentOperation.png"></button>
     <button class="wrongBt"><img src="UI\Title_WrongQuery_in.png"></button>
     <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
-   
+    <button class="setCode" onclick="javascript:location.href='setcode.html'"><img src="UI\create manager.png"></button>
+    <div class="header">
+		<img src="UI\BG_menu_bar.png">
+	</div>
     <div><p class="text">
         您好歡迎登入本系統
     </p></div>
@@ -217,7 +244,6 @@
     
     <img class="number3" src="UI\text_Mistake.png"></img>
 
-    <img class="BG_bar" src="UI\BG_menu_bar.png"></img>
     
     <script>
       bestdaylong_inq(10,2);

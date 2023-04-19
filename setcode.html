@@ -34,19 +34,39 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
-            top:245px;
-            left: clamp(1600px, 100%, calc(100% - 700px));
+            position: absolute;
+            top: 700px;
+            left: clamp(1650px, 100%, calc(100% - 530px));
+            background-size: contain;
+            background-image: url("UI/button_foolproof_confirm.png");
+            max-width: 100%;
+            max-height: 100%;
+            width: 200px;
+            height: 200px;
         }
             .shape-ex1:active{
             
             color: #000;
         }
-        .inputTXT{
+        .inputaccount{
             width: 500px;
             height: 40px;
             position:absolute;
-            top:260px;
+            top:360px;
+            left: clamp(800px, 50%, calc(100% - 1300px));
+        }
+        .inputcode{
+            width: 500px;
+            height: 40px;
+            position:absolute;
+            top:460px;
+            left: clamp(800px, 50%, calc(100% - 1300px));
+        }
+        .inputcodecheck{
+            width: 500px;
+            height: 40px;
+            position:absolute;
+            top:560px;
             left: clamp(800px, 50%, calc(100% - 1300px));
         }
         .achievementBt{
@@ -120,10 +140,24 @@
             white-space: nowrap;
             Z-index:2;
         }
-        .number1
+        .account
         {
             position:absolute;
-            top:220px;
+            top:320px;
+            left: clamp(500px, 50%, calc(100% - 1700px));
+            
+        }
+        .code
+        {
+            position:absolute;
+            top:420px;
+            left: clamp(500px, 50%, calc(100% - 1700px));
+            
+        }
+        .checkcode
+        {
+            position:absolute;
+            top:520px;
             left: clamp(500px, 50%, calc(100% - 1700px));
             
         }
@@ -225,106 +259,82 @@
         height: 50px;
         }
 
-
         
-      </style>
-<script type="text/javascript">
-var dateReviver = function (key, value) {
-    var a;
-    if (typeof value === 'string') {
-        a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-        if (a) {
-            var date = new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4], +a[5], +a[6]));
-            var year = date.getFullYear();
-            var month = ("0" + (date.getMonth() + 1)).slice(-2);
-            var day = ("0" + date.getDate()).slice(-2);
-            var hour = ("0" + date.getHours()).slice(-2);
-            var minute = ("0" + date.getMinutes()).slice(-2);
-            var second = ("0" + date.getSeconds()).slice(-2);
-            return year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
-        }
-    }
-    return value;
-};
-function bestdaylong_inq(orderID,Mobile,atmNO)
-{
-var xmlhttp;
-
-        if (window.XMLHttpRequest)
-          {// code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp=new XMLHttpRequest();
-          }
-        else
-          {// code for IE6, IE5
-          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-          }
-        xmlhttp.onreadystatechange=function()
-          {
-                  if (xmlhttp.readyState==4 && xmlhttp.status==200)      
-                  {
-                        var result=xmlhttp.responseText;
-                        var obj = JSON.parse(result,dateReviver);//解析json字串為json物件形式
-                                                
-                        var html = '<table class="sheet2"  border="1">';//
-                        
-                        for (var i = 1; i < obj.length; i ++ ) {//
-                                html  += '<tr>';//
-                                for(j=0;j<obj[i].data.length;j++)
-                                {
-                                  html+= '<td align="center" height="78px" width="450px">'+obj[i].data[j]+'</td>';
-                                }
-                                html  += '</tr>';            
-                        }
-                        html+="</table>";
-                        
-                        document.getElementById("order_status").innerHTML=html;
-                        if(obj.length==1) //只有一筆代表查不到資料
-                                alert('查無資料');
-                  }
-
-          }
-    var url="https://script.google.com/macros/s/AKfycbycAlTXduR_wNMMNQUuWxrFWFENZlp63jDVOQKmI54NAPcg5Z2e/exec";
-    xmlhttp.open("get",url+"?orderID="+orderID+"&Mobile="+Mobile+"&atmNO="+atmNO,true);
-    xmlhttp.send();
-}
-
-    window.alert = function(message) {
-            // 顯示自訂彈出視窗
-    const popup = document.createElement('div');
-    popup.className = 'custom-alert';
-    const content = document.createElement('div');
-    content.className = 'custom-alert-content';
-    content.innerHTML = message;
-    popup.appendChild(content);
-    const closeButton = document.createElement('button');
-    closeButton.innerHTML = '確定';
-    popup.appendChild(closeButton);
-    document.body.appendChild(popup);
-    closeButton.addEventListener('click', function() {
-        popup.parentNode.removeChild(popup);
-    });
-    }
-</script>
+    </style>
 </head>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <script>
+            function writeDataToGoogleSheet() {
+                const accountInput = document.getElementById('accountCreat')
+                const passwordInput = document.getElementById('pwdCreat')
+                const passwordCheckInput = document.getElementById('pwdCheck')
+                if (passwordInput.value !== passwordCheckInput.value) {
+                    alert("請再次確認密碼輸入相同")
+                    return
+                }
+                if(accountInput.value == "" || passwordInput.value == "" || passwordCheckInput.value == "")
+                {
+                    alert("請確認是否有欄位空白")
+                    return
+                }
+                /*$.ajax({
+                type: "post",
+                data: {
+                "method": "writecount",
+                "account": accountInput.value,
+                },
+                url: "https://script.google.com/macros/s/AKfycbycAlTXduR_wNMMNQUuWxrFWFENZlp63jDVOQKmI54NAPcg5Z2e/exec",
+                success: function (para) {
+                    if(para == "true")
+                    {
+                        localStorage.setItem('passwordUpdate', new Date())
+                        alert("已成功修改帳號密碼");
+                    }
+                    
+                }
+                
+                });*/
+            }
+
+            window.alert = function(message) {
+            // 顯示自訂彈出視窗
+            const popup = document.createElement('div');
+            popup.className = 'custom-alert';
+            const content = document.createElement('div');
+            content.className = 'custom-alert-content';
+            content.innerHTML = message;
+            popup.appendChild(content);
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '確定';
+            popup.appendChild(closeButton);
+            document.body.appendChild(popup);
+            closeButton.addEventListener('click', function() {
+                popup.parentNode.removeChild(popup);
+            });
+            }
+    </script>
+
 <body>
     <button class="achievementBt" onclick="javascript:location.href='AchievementSearch.html'"><img src="UI\Title_ResultInquiry.png"></button>
-    <button class="studentBt"><img src="UI\Title_StudentOperation_in.png"></button>
+    <button class="studentBt"><img src="UI\Title_StudentOperation.png"></button>
     <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
+    <button class="setCode" onclick="javascript:location.href='setcode.html'"><img src="UI\create manager_IN.png"></button>
     <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
-    <button class="setCode" onclick="javascript:location.href='setcode.html'"><img src="UI\create manager.png"></button>
     <div class="header">
 		<img src="UI\BG_menu_bar.png">
 	</div>
     <div><p class="text">
         您好歡迎登入本系統
     </p></div>
-    <img class="number1" src="UI\bar_Student code query.png"></img>
-    <img class="number4" src="UI\text_Codename.png"></img>
-    <img class="number2" src="UI\text_date.png"></img>
-    <img class="number3" src="UI\text_score.png"></img>
+    <img class="account" src="UI\create account.png"></img>
+    <img class="code" src="UI\create password.png"></img>
+    <img class="checkcode" src="UI\create password again.png"></img>
     <!--<img class="sheet" src="UI\sheet.png"></img>-->
-    <input id="orderID"  class="inputTXT" type="text" style="font-size:25px" oninput="value=value.replace(/[^\d]/g,'')">
-    <button name="inq" class="shape-ex1" onclick="bestdaylong_inq(orderID.value,0);"><img src="UI\button_Inquire.png"></button>
+    <input id="accountCreat"  class="inputaccount" type="text" style="font-size:25px" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')">
+    <input id="pwdCreat"  class="inputcode" type="password" style="font-size:25px" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')">
+    <input id="pwdCheck"  class="inputcodecheck" type="password" style="font-size:25px" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')">
+    <button name="check" class="shape-ex1" onclick="writeDataToGoogleSheet();"></button>
 
 
 <span id="order_status"></span>

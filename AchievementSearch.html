@@ -12,11 +12,22 @@
           
           width: 0px;
           height: 0px;
-          background-image:url("UI/BG_menu.png");
-          background-repeat: no-repeat;
-          /*background-size: cover;*/
+          background-image:url("UI/BG_menu_2.png");
+          background-size: cover;
+          background-repeat: repeat-y;
           background-attachment:absolute;
         }
+        .header {
+			position: fixed; /* 將元素固定在畫面上方 */
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1; /* 設定元素的層級 */
+		}
+        .header img {
+			width: 100%;
+			max-width: 5000px; /* 根據圖片原始大小調整 */
+		}
         .shape-ex1{
             
             cursor: pointer;
@@ -46,8 +57,10 @@
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
             position:absolute;
-            top:230px;
-            left:100px;
+            top: 25%; 
+            left: 0%;
+            width: 20%; 
+            height: auto; 
         }
         .studentBt{
             cursor: pointer;
@@ -56,8 +69,10 @@
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
             position:absolute;
-            top:330px;
-            left:100px;
+            top: 35%; 
+            left: 0%; 
+            width: 20%; 
+            height: auto; 
         }
         .wrongBt{
             cursor: pointer;
@@ -66,8 +81,22 @@
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
             position:absolute;
-            top:430px;
-            left:100px;
+            top: 45%; 
+            left: 0%; 
+            width: 20%; 
+            height: auto;
+        }
+        .setCode{
+            cursor: pointer;
+            border: none;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            transition: all .3s linear;
+            position:absolute;
+            top: 55%; 
+            left: 0%; 
+            width: 20%; 
+            height: auto;
         }
         .signoutBt
         {
@@ -76,37 +105,51 @@
             background-repeat: no-repeat;
             background-color: rgba(0, 0, 0, 0);
             transition: all .3s linear;
-            position:absolute;
-            top:40px;
-            left:1780px;
+            position:fixed;
+            top: 0%; 
+            right: -7%; 
+            width: 20%; 
+            height: auto;
+            z-index: 9999;
         }
         .text
         {
-            position:absolute;
-            top:40px;
-            left:1500px;
+            position:fixed;
+            top:-1%;
+            right: 6%; 
             font-size: 30px;
             white-space: nowrap;
+            Z-index:2;
         }
         .number1
         {
             position:absolute;
-            top:220px;
-            left:480px;
+            top:350px;
+            
+            left: clamp(800px, 50%, calc(100% - 1500px));
+            display: flex;
+            
+            max-width: 100%;
             
         }
         .number2
         {
             position:absolute;
-            top:220px;
-            left:950px;
+            top:350px;
+            
+            left: clamp(1100px, 100%, calc(100% - 1060px));
+            display: flex;
+            max-width: 100%;
             
         }
         .number3
         {
             position:absolute;
-            top:220px;
-            left:1410px;
+            top:350px;
+            left: clamp(1450px, 100%, calc(100% - 660px));
+            display: flex;
+            
+            max-width: 100%;
             
         }
         .fonttxt
@@ -120,15 +163,19 @@
         }
         .sheet2
         {
-            position:absolute;
-            top:300px;
-            left: 460px;
+            position: absolute;
+            top: 400px;
+            left: clamp(800px, 50%, calc(100% - 1500px));
             margin: 10px;
-            display: block;
-            overflow-x: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
             white-space: nowrap;
             width: 1350px;
             font-size: 20pt;
+            display: flex;
+            width: 100vh;
+            max-width: 100%; /* 圖片寬度不超過容器寬度 */
+            
         }
       </style>
       <script type="text/javascript">
@@ -189,14 +236,18 @@
     <button class="achievementBt" onclick="aa()"><img src="UI\Title_ResultInquiry_in.png"></button>
     <button class="studentBt" onclick="javascript:location.href='test2.html'"><img src="UI\Title_StudentOperation.png"></button>
     <button class="wrongBt" onclick="javascript:location.href='WrongQuery.html'"><img src="UI\Title_WrongQuery.png"></button>
-    <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
+    <button class="setCode" onclick="javascript:location.href='setcode.html'"><img src="UI\create manager.png"></button>
+    <div class="header">
+		<img src="UI\BG_menu_bar.png">
+	</div>
     <div><p class="text">
+    <button class="signoutBt" onclick="javascript:location.href='LogIn.html'"><img src="UI\button_SignOut.png"></button>
         您好歡迎登入本系統
     </p></div>
     <img class="number1" src="UI\text_Codename.png"></img>
     <img class="number2" src="UI\text_score1.png"></img>
     <img class="number3" src="UI\text_times.png"></img>
-    
+
 
 
 
