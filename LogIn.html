@@ -202,11 +202,14 @@
             // 登入成功，清除登入錯誤記錄
             localStorage.removeItem('ip_error_count')
             localStorage.removeItem('ip_lock_time')
+            //localStorage.setItem('passwordUpdate', new Date())
             checkPasswordUpdate()
+            //location.href = 'AchievementSearch.html'
             } else {
             // 登入失敗，增加登入錯誤次數
             const errorCount = Number(localStorage.getItem('ip_error_count')) || 0
             localStorage.setItem('ip_error_count', errorCount + 1)
+            localStorage.setItem('passwordUpdate', new Date())
             // 檢查是否超過登入錯誤次數限制
             if (errorCount >= 3) {
             const lockUntil = new Date()
@@ -228,6 +231,7 @@
             const minuteDiff = timeDiff / 1000 / 60
             if (minuteDiff >= 1) {
                 alert2('您的密碼已超過90天未更新，建議您更換新的密碼')
+                //location.href = 'AchievementSearch.html'
             }
             else
             {
